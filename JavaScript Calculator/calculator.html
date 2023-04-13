@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="calculator.css">
+
+<head>
+    <title>Javascript Calculator</title>
+</head>
+
+<body>
+    <div class="calculator">
+        <div class="number_div">
+            <div id="input"></div>
+            <div class="operator_div">
+                <div class="input_button">
+                    <div class="info_button" onclick="open_popup()">?</div>
+                    <div class="operator_button" onclick="input_pop()">&#8592;</div>
+                    <div class="operator_button" onclick="process()">=</div>
+                </div>
+                <div class="input_button">
+                    
+                    
+                    <div class="operator_button" onclick="input_operator('+')">+</div>
+                    <div class="operator_button" onclick="input_operator('-')">-</div>
+                    <div class="operator_button" onclick="input_operator('&times;')">&times;</div>
+                    <div class="operator_button" onclick="input_operator('&divide;')">&divide;</div>
+                    <div class="operator_button" onclick="input_operator('&#8730')">&#8730;</div>
+                    
+                </div>
+            </div>
+            <div class="input_button">
+                <div class="number_button" onclick="input_number('7')">7</div>
+                <div class="number_button" onclick="input_number('8')">8</div>
+                <div class="number_button" onclick="input_number('9')">9</div>
+            </div>
+            <div class="input_button">
+                <div class="number_button" onclick="input_number('4')">4</div>
+                <div class="number_button" onclick="input_number('5')">5</div>
+                <div class="number_button" onclick="input_number('6')">6</div>
+            </div>
+            <div class="input_button">
+                <div class="number_button" onclick="input_number('1')">1</div>
+                <div class="number_button" onclick="input_number('2')">2</div>
+                <div class="number_button" onclick="input_number('3')">3</div>
+            </div>
+            <div class="input_button">
+                <div class="number_button" onclick="input_number('.')">.</div>
+                <div class="number_button" onclick="input_number('0')">0</div>
+                <div class="clear_button" onclick="input_clear()">C</div>
+            </div>
+        </div>
+        
+    </div>
+    <script src="calculator.js"></script>
+
+</body>
+
+</html>
