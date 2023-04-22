@@ -1,4 +1,4 @@
-var input = document.getElementById("input");
+let input = document.getElementById("input");
 let operator;
 let input_string = "";
 let result;
