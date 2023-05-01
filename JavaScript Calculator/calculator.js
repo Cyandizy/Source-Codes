@@ -1,161 +1,160 @@
-var input = document.getElementById("input");
+const input = document.getElementById("input");
 let operator;
-let input_string = "";
+let inputString = "";
 let result;
-let operator_input = false;
-let operator_input_started_with_minus = false;
-let splitted_number;
-let info_text = false;
+let operatorInput = false;
+let operatorInputStartedWithMinus = false;
+let splittedNumber;
+let infoText = false;
 
-function input_number(x) {
+function inputNumber(x) {
     input.style.fontSize = "250%";
-    if (info_text == true) {
+    if (infoText == true) {
         input.innerHTML = "";
-        info_text = false;
-        console.log("info_text = false")
+        infoText = false;
     }
-    input_string += x;
+    inputString += x;
     input.innerHTML += x;
-    console.log(input_string);
+    console.log(inputString);
 }
 
-function input_operator(x) {
+function inputOperator(x) {
     input.style.fontSize = "250%";
-    if (info_text == true) {
+    if (infoText == true) {
         input.innerHTML = "";
-        info_text = false;
+        infoText = false;
     }   
-    if (input_string == "" && x == "\u221A") {
+    if (inputString == "" && x == "\u221A") {
         console.log("\u221A");
         operator = "sqrt";
-        input_string += "sqrt";
+        inputString += "sqrt";
         input.innerHTML += x;
-        operator_input = true;
+        operatorInput = true;
     }
     else {
 
-        if (input_string.startsWith('-')) {
+        if (inputString.startsWith('-')) {
 
-            if (operator_input_started_with_minus == false) {
+            if (operatorInputStartedWithMinus == false) {
 
                 input.innerHTML += x;
 
                 if (x == '\u00D7') {
                     console.log("&times;")
-                    input_string += '*';
+                    inputString += '*';
                     operator = '*';
                 }
                 else if (x == '\u00F7') {
                     console.log("&divide;")
-                    input_string += '/';
+                    inputString += '/';
                     operator = '/';
                 }
                 else {
-                    input_string += x;
+                    inputString += x;
                     operator = x;
                 }
-                operator_input = true;
-                operator_input_started_with_minus = true;
+                operatorInput = true;
+                operatorInputStartedWithMinus = true;
 
-                if (operator_input_started_with_minus == true) {
-                    console.log("started_with_minus == true")
+                if (operatorInputStartedWithMinus == true) {
+                    console.log("startedWithMinus == true")
                 }
             }
         }
-        else if (operator_input == false) {
+        else if (operatorInput == false) {
             input.innerHTML += x;
             if (x == '\u00D7') {
                 console.log("&times;")
-                input_string += '*';
+                inputString += '*';
                 operator = '*';
             }
             else if (x == '\u00F7') {
                 console.log("&divide;")
-                input_string += '/';
+                inputString += '/';
                 operator = '/';
             }
             else {
-                input_string += x;
+                inputString += x;
                 operator = x;
             }
-            operator_input = true;
-            console.log(input_string);
+            operatorInput = true;
+            console.log(inputString);
             console.log("if")
         }
     }
 }
 
 function process() {
-    splitted_number = input_string.split(/[\+\-\*\/\"sqrt"]/);
-    splitted_number = splitted_number.filter(Boolean);
-    console.log(splitted_number);
+    splittedNumber = inputString.split(/[\+\-\*\/\"sqrt"]/);
+    splittedNumber = splittedNumber.filter(Boolean);
+    console.log(splittedNumber);
 
-    if (operator_input_started_with_minus == true) {
-        splitted_number[0] = "-" + splitted_number[0];
-        console.log(splitted_number);
+    if (operatorInputStartedWithMinus == true) {
+        splittedNumber[0] = "-" + splittedNumber[0];
+        console.log(splittedNumber);
     }
 
     if (operator == '+') {
-        result = Number(splitted_number[0]) + Number(splitted_number[1]);
+        result = Number(splittedNumber[0]) + Number(splittedNumber[1]);
         console.log(result);
-        input_string = result.toString();
-        input.innerHTML = input_string;
+        inputString = result.toString();
+        input.innerHTML = inputString;
     }
     else if (operator == '-') {
-        result = Number(splitted_number[0]) - Number(splitted_number[1]);
+        result = Number(splittedNumber[0]) - Number(splittedNumber[1]);
         console.log(result);
-        input_string = result.toString();
-        input.innerHTML = input_string;
+        inputString = result.toString();
+        input.innerHTML = inputString;
     }
     else if (operator == '*') {
-        result = Number(splitted_number[0]) * Number(splitted_number[1]);
+        result = Number(splittedNumber[0]) * Number(splittedNumber[1]);
         console.log(result);
-        input_string = result.toString();
-        input.innerHTML = input_string;
+        inputString = result.toString();
+        input.innerHTML = inputString;
     }
     else if (operator == '/') {
-        result = Number(splitted_number[0]) / Number(splitted_number[1]);
+        result = Number(splittedNumber[0]) / Number(splittedNumber[1]);
         console.log(result);
-        input_string = result.toString();
-        input.innerHTML = input_string;
+        inputString = result.toString();
+        input.innerHTML = inputString;
     }
     else if (operator == 'sqrt'){
-        result = Math.sqrt(Number(splitted_number[0]));
+        result = Math.sqrt(Number(splittedNumber[0]));
         console.log(result);
-        input_string = result.toString();
-        input.innerHTML = input_string;
+        inputString = result.toString();
+        input.innerHTML = inputString;
     }
     else if (operator == ''){
         //pass
     }
     operator = '';
-    operator_input = false;
-    operator_input_started_with_minus = false;
+    operatorInput = false;
+    operatorInputStartedWithMinus = false;
 }
 
-function input_clear() {
-    input_string = "";
-    input.innerHTML = input_string;
-    operator_input = false;
-    operator_input_started_with_minus = false;
+function inputClear() {
+    inputString = "";
+    input.innerHTML = inputString;
+    operatorInput = false;
+    operatorInputStartedWithMinus = false;
 }
 
-function input_pop() {
-    input_string = input_string.slice(0, -1);
-    input.innerHTML = input_string;
-    if (input_string.includes('+') == false || input_string.includes('-') == false || 
-        input_string.includes('*') == false || input_string.includes('/') == false) {
-            operator_input = false;
-            operator_input_started_with_minus = false;
+function inputPop() {
+    inputString = inputString.slice(0, -1);
+    input.innerHTML = inputString;
+    if (inputString.includes('+') == false || inputString.includes('-') == false || 
+        inputString.includes('*') == false || inputString.includes('/') == false) {
+            operatorInput = false;
+            operatorInputStartedWithMinus = false;
     }
 }
 
-function open_popup() {
+function openPopUp() {
     input.style.fontSize = "90%";
     input.innerHTML = "//Use '\u221A' before numbers <br><br> made by Komes Pispol";
-    info_text = true;
-    input_string = "";
+    infoText = true;
+    inputString = "";
     operator = '';
-    operator_input = false;
-    operator_input_started_with_minus = false;
+    operatorInput = false;
+    operatorInputStartedWithMinus = false;
 }

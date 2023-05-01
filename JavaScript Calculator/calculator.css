@@ -21,7 +21,7 @@ html {
     align-items: center;
 }
 
-#input{
+.input{
     background-color: rgba(44, 55, 71, 0.1);
     border-radius: 5px;
     width: 200px;
@@ -40,7 +40,7 @@ html {
     
 }
 
-.operator_div {
+.operator-div {
     display: inline-block;
     margin: 0px 0px 7px 4px;
     background-image: linear-gradient(to right, #8CD4E3, #427bcb);
@@ -48,7 +48,7 @@ html {
     border-radius: 10px;
 }
 
-.input_button div{
+.input-button div{
     text-align: center;
     font-size: larger;
     border-radius: 40px;
@@ -59,7 +59,7 @@ html {
     display: inline-block;
 }
 
-.input_button.operator_button, .input_button.info_button{
+.input-button.operator-button, .input-button.info-button{
     text-align: center;
     font-size: larger;
     border-radius: 40px;
@@ -70,11 +70,11 @@ html {
     margin: 5px 0px 0px 0px;
 }
 
-.input_button div:hover{
+.input-button div:hover{
     box-shadow: 2px 2px 4px #5068A8;
 }
 
-.number_button {
+.number-button {
     margin: 5px 5px 5px 5px;
     background-color: #313D4D;
     border-color: #427bcb;
@@ -85,7 +85,7 @@ html {
     padding: 15px;
 }
 
-.operator_button {
+.operator-button {
     margin: 5px 0px 0px 5px;
     background-color: #313D4D;
     border-color: #364A87;
@@ -96,7 +96,7 @@ html {
     padding: 0px;
 }
 
-.clear_button {
+.clear-button {
     background-color: #313D4D;
     border-color: #427bcb;
     border-width: 3px;
@@ -107,7 +107,7 @@ html {
     margin: 5px 0px 0px 5px;
 }
 
-.info_button {
+.info-button {
     background-color: aliceblue;
     border-color: aliceblue;
     border-width: 3px;
